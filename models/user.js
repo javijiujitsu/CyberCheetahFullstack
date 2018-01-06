@@ -10,8 +10,8 @@ const userSchema = new Schema(
 		email:{ type: String, required: [true, "Email required."], unique: true },
 		idcareer:[{ type: Schema.Types.ObjectId, required: true },
 		{ date: Date,  default: new Date(), required: true }],
-    userid:[{ type: Schema.Types.ObjectId, }],
-    idtask:[{ type: Schema.Types.ObjectId, }],
+    userid:[{ type: Schema.Types.ObjectId,}],
+    idtask:[{ type: Schema.Types.ObjectId, ref: 'Task' }],
 	},{
 		timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 }

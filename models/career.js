@@ -9,7 +9,7 @@ const careerSchema = new Schema(
 		universities:{ type: String },
     certification:{ type: String,},
     resource:{ type: String,},
-    idtask:[{  type: Schema.Types.ObjectId,}],
+    idtask:[{  type: Schema.Types.ObjectId, ref: 'Task'}],
 	},
 	{
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
