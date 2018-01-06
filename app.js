@@ -4,11 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-var appRoutes = require('./routes/app');
+var appRoutes  = require('./routes/app');
+var userRoutes = require('./routes/user');
+var careerRoutes  = require('./routes/career');
 
 var app = express();
-
+mongoose.connect('localhost:27017/cyber-cheetah');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -28,7 +31,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/user',userRoutes);
+app.use('/career',careerRoutes);
 app.use('/', appRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
