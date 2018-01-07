@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var appRoutes  = require('./routes/app');
 var userRoutes = require('./routes/user');
 var careerRoutes  = require('./routes/career');
+var taskRoutes  = require('./routes/task');
 
 var app = express();
 mongoose.connect('localhost:27017/cyber-cheetah');
@@ -33,6 +34,7 @@ app.use(function(req, res, next) {
 
 app.use('/user',userRoutes);
 app.use('/career',careerRoutes);
+app.use('/task',taskRoutes);
 app.use('/', appRoutes);
 
 
